@@ -26,7 +26,7 @@ git clone git@github.com:Haile-Baranto/alx-higher_level_programming.git
 No known bugs.
 
 
-## Authors :black_nib
+## Authors:
 **Haile Baranto** [https://github.com/Haile-Baranto/)
 
 ## Acknowledgements :pray:
