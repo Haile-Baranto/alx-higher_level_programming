@@ -17,4 +17,4 @@ def divisible_by_2(my_list=[]):
             boolean_lsit.append(True)
         else:
             boolean_lsit.append(False)
-            return boolean_lsit
+    return boolean_lsit
