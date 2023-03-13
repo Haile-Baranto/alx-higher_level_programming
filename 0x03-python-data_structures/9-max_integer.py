@@ -9,16 +9,11 @@ def max_integer(my_list=[]):
     Args:
         my_list (list, optional): _description_. Defaults to [].
     """
-    maximum = 0
-    for i in my_list:
-        if len(my_list) == 0:
-            return None
-        elif len(my_list) == 1:
-            return my_list[0]
-        else:
-            for i in range(len(my_list) - 1):
-                if my_list[i] >= my_list[i + 1]:
-                    maximum = my_list[i]
-                else:
-                    maximum = my_list[i + 1]
-    return maximum
+    if len(my_list) == 0:
+        return None
+    else:
+        maximum = my_list[0]
+        for item in my_list:
+            if my_list > maximum:
+                maximum = item
+        return maximum
