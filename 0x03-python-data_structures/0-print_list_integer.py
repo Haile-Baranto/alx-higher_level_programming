@@ -10,4 +10,4 @@ def print_list_integer(my_list=[]):
         You are not allowed to cast integers into strings
         You have to use str.format() to print integers"""
     for i in my_list:
-        print("{}".format(i))
+        print("{:d}".format(i))
