@@ -11,7 +11,7 @@ def replace_in_list(my_list, idx, element):
         idx (int): inedex at which the value will be replaced
         element (any valid pyhton type): value to replace value at my_list[idx]
     """
-    if (idx < 0) or (idx > len(my_list)):
+    if (idx < 0) or (idx >= len(my_list)):
         return my_list
     else:
         my_list[idx] = element
