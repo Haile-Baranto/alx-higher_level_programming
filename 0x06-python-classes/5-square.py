@@ -43,10 +43,10 @@ class Square:
         """prints the sqaure using # to stdout
         """
         if self.__size == 0:
-            print()
+            print("")
         else:
             for i in range(self.__size):
                 for i in range(self.__size):
                     print("#", end="")
-                print()
-            print()
+                print("")
+            print("")
