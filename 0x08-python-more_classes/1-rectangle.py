@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-class Rectangle:
+class Rectangle(object):
     def __init__(self, width=0, height=0):
         """Instanciates the object with width and height
 
