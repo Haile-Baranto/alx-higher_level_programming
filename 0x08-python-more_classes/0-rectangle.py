@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # creates an empty class
-""" Define an empty Rectangle class
+""" Define Rectangle class
     Using module is not allowed"""
 
 
