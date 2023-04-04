@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """ File name : 4-rectangle.py
     Eval: print #
     It is not allowed to import any module
