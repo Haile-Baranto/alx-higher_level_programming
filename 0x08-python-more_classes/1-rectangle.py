@@ -7,7 +7,7 @@
 class Rectangle(object):
     """ defines new class Rectangle"""
     def __init__(self, width=0, height=0):
-        """Instanciates the object with width and height
+        """Instanciates new class REctangle
 
         Args:
             width (int, optional): height of new rectangle. Defaults to 0.
@@ -44,7 +44,7 @@ class Rectangle(object):
 
     @property
     def height(self):
-        """Returns private property height
+        """Returns property height
 
         Returns:
             int: height to be returned
