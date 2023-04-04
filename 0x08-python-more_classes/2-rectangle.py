@@ -1,82 +1,64 @@
 #!/usr/bin/python3
+""" File name : 2-rectangle.py
+    Defines Rectangle class
+    It is not allowed to import any module
+"""
+
+
 class Rectangle(object):
+    """Define new class Rectangle"""
     def __init__(self, width=0, height=0):
-        """Instanciates the object with width and height
+        """Initialize new class rectangle
 
         Args:
-            width (int, optional): height of rectangle. Defaults to 0.
-            height (int, optional): width of the rectangle. Defaults to 0.
+            width (int): width for the new rectangle
+            height (int): height for the new rectangle
         """
-        self.width = width
         self.height = height
-
-    @property
-    def height(self):
-        """Returns private property height
-
-        Returns:
-            int: height to be returned
-        """
-        return self.__width
-
-    @height.setter
-    def height(self, value):
-        """setts instance attribute height
-
-        Args:
-            value (int): the value to be set
-
-        Raises:
-            ValueError: if height is not integer
-            ValueError: if height is negative
-        """
-        if isinstance(value, int):
-            raise ValueError("height must be an integer")
-        if value < 0:
-            raise ValueError("height must be >= 0")
-        else:
-            self.__height = value
+        self.width = width
 
     @property
     def width(self):
-        """setts width instance attribute
-
-        Returns:
-            int: width of the rectangle
-        """
+        """attribute width of instance of class rectangle."""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """sets width
+        """Set values to width property
 
         Args:
-            value (int): _the vaue to be set to width
-
-        Raises:
-            ValueError: if vaue is not int
-            ValueError: if value is < 0
+            value (int): value for property width
         """
-        if isinstance(value, int):
-            raise ValueError("width must be an integer")
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
         self.__width = value
 
-    def area(self):
-        """public instance method calculates area of rectangle
+    @property
+    def height(self):
+        """Property for attribute height."""
+        return self.__height
 
-        Returns:
-            int: area of rectangle
+    @height.setter
+    def height(self, value):
+        """Set value to height attribute
+
+        Args:
+            value (int): value for height property
         """
-        return self.__height * self.__width
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        if value < 0:
+            raise ValueError("height must be >= 0")
+        self.__height = value
+
+    def area(self):
+        """Defines area of rectangle"""
+        return self.__width * self.__height
 
     def perimeter(self):
-        """computes premeiter of rectangle
-
-        Returns:
-            int: _area of rectangle
-        """
-        if self.__height == 0 or self.__width == 0:
+        """Defines perimeter of rectangle"""
+        if self.__width == 0 or self.__height == 0:
             return 0
-        return 2 * (self.__height + self.__width)
+        return 2 * (self.__width + self.__height)
