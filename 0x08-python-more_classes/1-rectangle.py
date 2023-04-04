@@ -1,69 +1,54 @@
 #!/usr/bin/python3
-# creates an empty class
-""" Define class Rectangle
-    Using module is not allowed"""
+""" File name : 1-rectangle.py
+    Real definiton of rectangle
+    It is not allowed to import any module
+"""
 
 
 class Rectangle(object):
-    """ defines new class Rectangle"""
+    """Define new class Rectangle"""
     def __init__(self, width=0, height=0):
-        """Instanciates new class REctangle
+        """Initialize new class rectangle
 
         Args:
-            width (int, optional): height of new rectangle. Defaults to 0.
-            height (int, optional): width of the new rectangle. Defaults to 0.
+            width (int): width for the new rectangle
+            height (int): height for the new rectangle
         """
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """Getts width property
-
-        Returns:
-            int: width of the rectangle
-        """
+        """attribute width of instance of class rectangle."""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """sets width property
+        """Set values to width property
 
         Args:
-            value (int): _the vaue to be set to width
-
-        Raises:
-            ValueError: if vaue is not int
-            ValueError: if value is < 0
+            value (int): value for property width
         """
         if not isinstance(value, int):
-            raise ValueError("width must be an integer")
+            raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
         self.__width = value
 
     @property
     def height(self):
-        """Returns property height
-
-        Returns:
-            int: height to be returned
-        """
-        return self.__width
+        """Property for attribute height."""
+        return self.__height
 
     @height.setter
     def height(self, value):
-        """setts instance attribute height
+        """Set the values to height
 
         Args:
-            value (int): the value to be set
-
-        Raises:
-            ValueError: if height is not integer
-            ValueError: if height is negative
+            value (int): value for height property
         """
         if not isinstance(value, int):
-            raise ValueError("height must be an integer")
+            raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
