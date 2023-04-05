@@ -108,6 +108,19 @@ Traceback (most recent call last):
 ZeroDivisionError: division by zero
 
 
+Matrix divide float('inf')
+
+::
+    >>> matrix = [
+    ...     [5, 63, 0],
+    ...     [6, 3, 56],
+    ...     [8, 23, 5],
+    ...     [21, 54, 6]
+    ... ]
+    >>> print(matrix_divided(matrix, float('inf')))
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+
 
 
 
