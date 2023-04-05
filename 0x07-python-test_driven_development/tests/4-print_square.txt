@@ -1,0 +1,41 @@
+# File: print_square.txt test for print_square.py module
+
+***************************
+How to use print_square
+****************************
+
+The module shows how to use 0-add_ingers.py module
+
+Usage:
+******
+
+>>> print_square = __import__('4-print_square').print_square
+
+If size is not integer
+
+    >>> print_square(4.5)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> print_square("Hello")
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+If no arguement is passed
+    >>> print_square()
+    Traceback (most recent call last):
+    TypeError: print_square() missing 1 required positional argument: 'size'
+
+If size is float and size < 0
+    >>> print_square(-4)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
+
+    >>> print_square(-4)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
+
+If size is zero
+    >>> print_square(0)
+
+
