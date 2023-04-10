@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """The function that returns available methods and attributes
     of an object.
     Prototype: def lookup(obj):
