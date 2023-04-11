@@ -5,14 +5,16 @@ import json
     Prototype: def to_json_string(my_obj):
     You don’t need to manage exceptions if the object can’t be serialized.
     """
-import json
 
 
 def to_json_string(my_obj):
-    """to_json_string  returns the JSON representation of an object (string)
+    """
+    Returns the JSON representation of an object.
 
     Args:
-        my_obj (obj): any object for example list, dict
-    """
-    return(json.dumps(my_obj))
+        my_obj (object): The object to convert to JSON.
 
+    Returns:
+        str: The JSON representation of the object.
+    """
+    return json.dumps(my_obj)
