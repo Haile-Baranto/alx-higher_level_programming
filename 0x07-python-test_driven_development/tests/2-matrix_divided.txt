@@ -1,0 +1,95 @@
+# File: 2-matrix_divided.txt
+
+***************************
+How to use 2-matrix_divided.py
+****************************
+
+The module shows how to use the 2-matrix_divided.py module.
+
+Usage:
+******
+matrix_divided(matrix, div) divides each element of the matrix by div.
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+# Test Case 1: Valid matrix and div value
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0], [3.5, 4.0, 4.5]]
+
+# Test Case 2: Rows with different sizes
+>>> matrix = [[1, 2, 3], [4, 5, 6, 7], [8, 9, 10]]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
+
+# Test Case 3: Non-integer and non-float elements in the matrix
+>>> matrix = [[1, 2, 3], [4, '5', 6], [7, 8, 9]]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test Case 4: Non-numeric div value
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> div = '2'
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+TypeError: div must be a number
+
+# Test Case 5: Division by zero
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> div = 0
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+ZeroDivisionError: division by zero
+
+# Test Case 6: Empty matrix
+>>> matrix = []
+>>> div = 2
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test Case 7: Rows with different sizes (uneven matrix)
+>>> matrix = [[1, 2, 3], [4, 5], [6, 7, 8]]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
+
+# Test Case 8: Empty row
+>>> matrix = [[1, 2, 3], [4, 5, 6], []]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
+
+# Test Case 9: Non-numeric elements in the matrix
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, None]]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test Case 10: Non-numeric div value
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> div = None
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+TypeError: div must be a number
+
+# Test Case 11: Complex div value
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> div = complex(2, 3)
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+TypeError: div must be a number
+
+# Test Case 12: Large div value
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> div = 10**100
+>>> matrix_divided(matrix, div)
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]

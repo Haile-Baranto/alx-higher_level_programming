@@ -1,0 +1,92 @@
+>>> text = __import__('5-text_indentation').text_indentation
+
+"""
+Title: text_indentation() Function Test Cases
+
+Description:
+This file contains test cases for the text_indentation() function.
+
+Test Cases:
+---
+
+Test Case 1:
+Description: Test with an empty string
+>>> text("")
+
+Test Case 2:
+Description: Test with text without any punctuation characters
+>>> text("This is a test sentence")
+This is a test sentence
+
+Test Case 3:
+Description: Test with multiple consecutive punctuation characters
+>>> text("This is a test sentence... Another test sentence? Final sentence: The end.")
+This is a test sentence.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+Another test sentence?
+<BLANKLINE>
+Final sentence:
+<BLANKLINE>
+The end.
+<BLANKLINE>
+
+Test Case 4:
+Description: Test with leading and trailing whitespace
+>>> text("  This is a test sentence.  ")
+This is a test sentence.
+<BLANKLINE>
+
+
+Test Case 5:
+Description: Test with non-string input
+>>> text(123)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+Test Case 6:
+Description: Test with text containing only punctuation characters
+>>> text("...???:")
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+?
+<BLANKLINE>
+?
+<BLANKLINE>
+?
+<BLANKLINE>
+:
+<BLANKLINE>
+
+Test Case 7:
+Description: Test with a combination of punctuation and non-punctuation characters
+>>> text("Hello! How are you? I am fine, thank you.")
+Hello! How are you?
+<BLANKLINE>
+I am fine, thank you.
+<BLANKLINE>
+
+Test Case 8:
+Description: Test with a string containing only a newline character
+>>> text("\n")
+
+Test Case 9:
+Description: Test with consecutive newline characters
+>>> text("Hello!\n\nHow are you?\n\n\nI am fine.")
+Hello!
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+I am fine.
+<BLANKLINE>
+
+
+"""
