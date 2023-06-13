@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 import sys
 import signal
 
@@ -13,7 +12,7 @@ def print_statistics(file_size, status_codes):
         the count of each status code.
 
     """
-    print("Total file size: {}".format(file_size))
+    print("File size: {}".format(file_size))
     sorted_codes = sorted(status_codes.keys())
     for code in sorted_codes:
         count = status_codes[code]
