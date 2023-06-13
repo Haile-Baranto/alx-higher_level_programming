@@ -1,73 +1,59 @@
+#!/usr/bin/python3
+"""
+Reads stdin line by line and computes metrics:
+- Total file size
+- Number of lines by status code
+
+Input format: <IP Address> - [<date>] "GET /projects/260
+HTTP/1.1" <status code> <file size>
+Each 10 lines and after a keyboard interruption (CTRL + C),
+prints the statistics since the beginning.
+"""
+
 import sys
-import signal
+from collections import defaultdict
 
 
-def print_statistics(file_size, status_codes):
+def print_status():
     """
-    Print the computed statistics.
-
-    Args:
-        file_size (int): The total file size.
-        status_codes (dict): The dictionary containing
-        the count of each status code.
-
+    Prints the status of requests based on the input.
+    Computes metrics such as total file size and number
+    of lines by status code.
     """
-    print("File size: {}".format(file_size))
-    sorted_codes = sorted(status_codes.keys())
-    for code in sorted_codes:
-        count = status_codes[code]
-        print("{}: {}".format(code, count))
-
-
-def signal_handler(signal, frame):
-    """
-    Signal handler for keyboard interruption.
-
-    Args:
-        signal: The signal number.
-        frame: The current stack frame.
-
-    """
-    print_statistics(file_size, status_codes)
-    sys.exit(0)
-
-
-def compute_metrics():
-    """
-    Read stdin line by line and compute metrics.
-
-    Metrics:
-    - Total file size: Sum of all file sizes.
-    - Number of lines by status code: Count of each status code.
-
-    """
-    lines_count = 0
+    counter = 0
+    size = 0
     file_size = 0
-    status_codes = {}
+    status_counts = defaultdict(int)
 
-    # Set up the signal handler for keyboard interruption
-    signal.signal(signal.SIGINT, signal_handler)
+    for line in sys.stdin:
+        line_data = line.split()
+        try:
+            file_size = int(line_data[-1])
+            status_code = line_data[-2]
+            size += file_size
+            status_counts[status_code] += 1
+        except (IndexError, ValueError):
+            continue
 
-    try:
-        for line in sys.stdin:
-            lines_count += 1
-            tokens = line.strip().split()
-            if len(tokens) >= 9:
-                file_size += int(tokens[-1])
-                code = tokens[-2]
-                if code in status_codes:
-                    status_codes[code] += 1
-                else:
-                    status_codes[code] = 1
+        counter += 1
+        if counter == 10:
+            print_metrics(size, status_counts)
+            counter = 0
 
-            if lines_count % 10 == 0:
-                print_statistics(file_size, status_codes)
+    if counter != 0:
+        print_metrics(size, status_counts)
 
-    except KeyboardInterrupt:
-        pass
 
-    print_statistics(file_size, status_codes)
+def print_metrics(size, status_counts):
+    """
+    Prints the metrics: total file size and number of lines by status code.
+    """
+    print("File size: {}".format(size))
+    for status_code in sorted(status_counts):
+        count = status_counts[status_code]
+        if count > 0:
+            print("{}: {}".format(status_code, count))
 
 
 if __name__ == "__main__":
-    compute_metrics()
+    print_status()
