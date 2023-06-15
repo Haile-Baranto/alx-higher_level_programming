@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """The module contains a class Rectangle that inherites from super class Base
-    Module name: rectangle.py
+    Module name: rectangle.py. The rectangel has differnt methods
     """
 from models.base import Base
 
