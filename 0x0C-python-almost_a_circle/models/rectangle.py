@@ -1,6 +1,29 @@
 #!/usr/bin/python3
-"""The module contains a class Rectangle that inherites from super class Base
-    Module name: rectangle.py
+"""This module defines the Rectangle class that represents a rectangle shape.
+
+The Rectangle class is a subclass of the Base class and provides
+methods for manipulating and displaying rectangles.
+
+Classes:
+    - Rectangle: Represents a rectangle and provides methods
+    for manipulation and display.
+
+Attributes:
+    - width (int): The width of the rectangle.
+    - height (int): The height of the rectangle.
+    - x (int): The x-coordinate of the rectangle's position.
+    - y (int): The y-coordinate of the rectangle's position.
+    - id (int): The unique identifier of the rectangle.
+
+Methods:
+    - __init__(self, width, height, x=0, y=0, id=None):
+    Initializes a Rectangle object.
+    - area(self): Calculates the area of the rectangle.
+    - display(self): Displays the rectangle using '#' characters.
+    - __str__(self): Returns a string representation of the rectangle.
+    - update(self, *args, **kwargs): Updates the attributes of the rectangle.
+    - to_dictionary(self): Returns a dictionary representation of the
+    rectangle.
     """
 from models.base import Base
 
