@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import json
 import csv
+import turtle
 """ The module defines a base class Base
     Module name: base.py
     The the goal of the class is to manage id attribute of all
@@ -128,3 +129,41 @@ class Base:
                 elif cls.__name__ == "Square":
                     row = [obj.id, obj.size, obj.x, obj.y]
                 writer.writerow(row)
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Opens a window and draws all the Rectangles and Squares using
+        Turtle graphics module.
+
+        Args:
+            list_rectangles (list): List of Rectangle objects.
+            list_squares (list): List of Square objects.
+        """
+        screen = turtle.Screen()
+        screen.setup(800, 600)  # Set the window size as per your preference
+        pen = turtle.Turtle()
+
+        # Draw Rectangles
+        for rectangle in list_rectangles:
+            pen.penup()
+            pen.goto(rectangle.x, rectangle.y)
+            pen.pendown()
+            pen.forward(rectangle.width)
+            pen.left(90)
+            pen.forward(rectangle.height)
+            pen.left(90)
+            pen.forward(rectangle.width)
+            pen.left(90)
+            pen.forward(rectangle.height)
+            pen.left(90)
+
+        # Draw Squares
+        for square in list_squares:
+            pen.penup()
+            pen.goto(square.x, square.y)
+            pen.pendown()
+            for _ in range(4):
+                pen.forward(square.size)
+                pen.left(90)
+
+        turtle.done()
