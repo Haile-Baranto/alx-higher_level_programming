@@ -1,2 +1,2 @@
--- List databases in my SQL server
+-- Lists databases in my SQL server
 SHOW DATABASES;
