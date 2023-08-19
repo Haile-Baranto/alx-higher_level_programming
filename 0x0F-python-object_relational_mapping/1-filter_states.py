@@ -29,14 +29,13 @@ if __name__ == "__main__":
 
     # Retrieve and display sorted list of states starting with 'N'
     query = (
-        "SELECT * FROM states WHERE name LIKE 'N%' "
-        "ORDER BY states.id ASC"
+        "SELECT DISTINCT name FROM states WHERE name LIKE 'N%' "
+        "ORDER BY name ASC"
     )
     cursor.execute(query)
     states = cursor.fetchall()
 
     # Display the retrieved states
-    print("States with names starting with 'N':")
     for state in states:
         print(state)
 
