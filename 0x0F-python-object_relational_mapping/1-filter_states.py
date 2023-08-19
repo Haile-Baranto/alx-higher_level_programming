@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Script to list all states with a name starting with 'N' from the hbtn_0e_0_usa database.
+Script to list all states with a name starting with 'N' from the
+hbtn_0e_0_usa database.
 
 Usage: python script.py <mysql_username> <mysql_password> <database_name>
 """
@@ -11,7 +12,8 @@ import sys
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("Usage: python script.py <mysql_username> <mysql_password> <database_name>")
+        print("Usage: python script.py <mysql_username> <mysql_password>\
+              <database_name>")
         sys.exit(1)
 
     username = sys.argv[1]
@@ -20,7 +22,8 @@ if __name__ == "__main__":
 
     # Connect to the MySQL server
     db = MySQLdb.connect(
-        host="localhost", port=3306, user=username, passwd=password, db=database_name
+        host="localhost", port=3306, user=username, passwd=password,
+        db=database_name
     )
     cursor = db.cursor()
 
