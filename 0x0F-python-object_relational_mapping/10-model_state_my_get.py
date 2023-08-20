@@ -1,22 +1,22 @@
 #!/usr/bin/python3
-"""
-Prints the State object with the name passed as argument
+'''
+A script that lists the id of a State object with a given name
 from the database hbtn_0e_6_usa.
-"""
+'''
 
-from sys import argv
+import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 if __name__ == "__main__":
-    if len(argv) != 5:
+    if len(sys.argv) != 5:
         print("Usage: {} username password database\
-              state_name".format(argv[0]))
+              state_name".format(sys.argv[0]))
         exit(1)
 
-    username, password, database, state_name = argv[1],
-    argv[2], argv[3], argv[4]
+    username, password, database, state_name = sys.argv[1],\
+        sys.argv[2], sys.argv[3], sys.argv[4]
 
     # Create an engine to connect to the database
     engine = create_engine(
@@ -28,13 +28,13 @@ if __name__ == "__main__":
     session = Session()
 
     # Query the State object with the given state_name
-    state = session.query(State).filter(State.name == state_name).first()
+    state = session.query(State).filter_by(name=state_name).first()
 
     # Print the result
-    if state is None:
-        print("Not found")
+    if state is not None:
+        print(str(state.id))
     else:
-        print(state.id)
+        print("Not found")
 
     # Close the session
     session.close()
