@@ -22,15 +22,17 @@ if __name__ == "__main__":
 
     # Connect to the MySQL server
     db = MySQLdb.connect(
-        host="localhost", port=3306, user=username, passwd=password,
+        host="localhost",
+        port=3306,
+        user=username,
+        passwd=password,
         db=database_name
     )
     cursor = db.cursor()
 
     # Retrieve and display sorted list of states starting with 'N'
     query = (
-        "SELECT DISTINCT name FROM states WHERE name LIKE 'N%' "
-        "ORDER BY name ASC"
+        "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC"
     )
     cursor.execute(query)
     states = cursor.fetchall()
