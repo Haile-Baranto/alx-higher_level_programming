@@ -33,7 +33,7 @@ request(apiUrl, { json: true }, (error, response, movieData) => {
   let counter = 0;
 
   // Function to retrieve and print character names in order
-  function printCharacterName(characterUrl) {
+  function printCharacterName (characterUrl) {
     request(characterUrl, { json: true }, (characterError, characterResponse, characterData) => {
       if (!characterError && characterResponse.statusCode === 200) {
         console.log(characterData.name);
