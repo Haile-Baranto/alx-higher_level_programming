@@ -1,7 +1,6 @@
 #!/usr/bin/node
 
 const request = require('request');
-
 const apiUrl = process.argv[2];
 
 if (!apiUrl) {
@@ -9,25 +8,22 @@ if (!apiUrl) {
   process.exit(1);
 }
 
-request(apiUrl, (error, response, body) => {
+request.get(apiUrl, { json: true }, (error, response, body) => {
   if (error) {
     console.error(error);
   }
 
-  const tasks = JSON.parse(body);
-  const completedTasksByUser = {};
+  const completedTask = {};
 
-  // Iterate through the tasks and count completed tasks by user
-  tasks.forEach((task) => {
-    if (task.completed) {
-      if (completedTasksByUser[task.userId]) {
-        completedTasksByUser[task.userId]++;
+  body.forEach((todo) => {
+    if (todo.completed) {
+      if (!completedTask[todo.userId]) {
+        completedTask[todo.userId] = 1;
       } else {
-        completedTasksByUser[task.userId] = 1;
+        completedTask[todo.userId]++;
       }
     }
   });
 
-  // Print the completed tasks count for each user
-  console.log(JSON.stringify(completedTasksByUser, null, 2));
+  console.log(completedTask);
 });
